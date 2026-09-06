@@ -1,0 +1,12 @@
+node_modules/
+dist/
+*.db
+*.sqlite
+.env
+.credentials
+coverage/
+.vitest/
+.DS_Store
+logs/
+~/.prompt2task/
+drizzle/
