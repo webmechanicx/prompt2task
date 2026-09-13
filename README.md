@@ -2,6 +2,8 @@
 
 Local-first CLI that turns natural-language prompts into structured tasks, sends them to AI providers (OpenAI, Claude), and stores history locally in SQLite.
 
+[Visit Website](https://prompt2task.dev)
+
 ## What it does
 
 1. Reads your configuration (`~/.prompt2task/config.json`)

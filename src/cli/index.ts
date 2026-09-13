@@ -8,6 +8,7 @@ import { searchCommand } from "./commands/search.js";
 import { configShowCommand, configSetCommand } from "./commands/config.js";
 import { providerCommand } from "./commands/provider.js";
 import { credentialsRemoveCommand } from "./commands/credentials.js";
+import { copyCommand } from "./commands/copy.js";
 import { setDebug } from "../utils/logger.js";
 
 export function createProgram(): Command {
@@ -126,6 +127,25 @@ export function createProgram(): Command {
     .argument("[provider]", "Provider to remove")
     .action((provider?: string) => {
       credentialsRemoveCommand(provider);
+    });
+
+  program
+    .command("copy")
+    .description("Copy task prompt/response to clipboard")
+    .argument("<id>", "Task ID")
+    .option("--json", "Copy full task as JSON")
+    .option("--response", "Copy response instead of prompt")
+    .action(async (id: string, opts) => {
+      try {
+        const globalOpts = program.opts();
+        await copyCommand(id, {
+          json: !!(opts.json ?? globalOpts.json),
+          response: !!opts.response,
+        });
+      } catch (err) {
+        console.error(chalk.red(`✗ ${(err as Error).message}`));
+        process.exit(1);
+      }
     });
 
   return program;
