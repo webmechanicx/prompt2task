@@ -67,6 +67,10 @@ prompt2task list --json
 prompt2task show tsk_8f29a
 prompt2task show tsk_8f29a --json
 
+prompt2task copy tsk_8f29a              # copies prompt to clipboard (clipboardy, fallback to stdout)
+prompt2task copy tsk_8f29a --response   # copies response
+prompt2task copy tsk_8f29a --json       # copies full task JSON (also: prompt2task --json copy <id>)
+
 prompt2task search "authentication"
 prompt2task search "authentication" --json
 ```
@@ -164,6 +168,9 @@ prompt2task init
 prompt2task "Build a responsive React dashboard"
 prompt2task list
 prompt2task show <task-id>
+prompt2task copy <task-id>              # copies prompt to clipboard (clipboardy, fallback to stdout)
+prompt2task copy <task-id> --response   # copies response
+prompt2task copy <task-id> --json       # copies full task JSON (also: prompt2task --json copy <id>)
 prompt2task search "dashboard"
 prompt2task --json "Fix WordPress menu" | jq .
 ```

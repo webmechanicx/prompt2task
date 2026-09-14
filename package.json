@@ -1,6 +1,6 @@
 {
   "name": "prompt2task",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "Local-first CLI that turns natural-language prompts into structured tasks and sends them to AI providers",
   "type": "module",
   "bin": {
